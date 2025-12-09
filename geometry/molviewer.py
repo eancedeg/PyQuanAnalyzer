@@ -17,13 +17,13 @@ class MolecularViewer(QWidget):
         view = py3Dmol.view(width="100%", height="100%")
         view.addModel(xyz_string, "xyz")
 
-        # Ball-and-stick stable
-        view.setStyle(
-            {},
-            {
-                "sphere": {"scale": 0.28},
-                "stick": {"radius": 0.15}
-            }
+        # Estilo general (ball-and-stick estable)
+        view.setStyle({}, {"sphere": {"scale": 0.28}, "stick": {"radius": 0.15}})
+
+        # Sobrescribir color para N
+        view.setStyle({"elem": "N"}, {"sphere": {"color": "#3050F8", 'scale': 0.28},
+                                      "stick": {"color": "#3050F8", 'radius': 0.15}
+                                      }
         )
 
         view.zoomTo()
